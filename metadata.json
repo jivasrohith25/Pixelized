@@ -1,0 +1,6 @@
+{
+  "name": "Pixelized",
+  "description": "Convert images into high-fidelity terminal ASCII art or pixelated representations with customizable density and color modes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-glass-bg: rgba(18, 18, 18, 0.6);
+  --color-glass-border: rgba(255, 255, 255, 0.05);
+  --color-accent: #3b82f6;
+  --color-accent-hover: #60a5fa;
+  --color-surface: #0a0a0a;
+  --color-panel: #141414;
+}
+
+@layer base {
+  body {
+    @apply bg-neutral-950 text-neutral-400 font-sans antialiased overflow-hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-800 rounded-full hover:bg-accent/40 transition-colors;
+  }
+}
+
+.glass-panel {
+  @apply bg-glass-bg backdrop-blur-2xl border border-glass-border shadow-2xl;
+}
+
+.glass-button {
+  @apply px-4 py-2 bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 rounded-xl transition-all active:scale-[0.98] text-[10px] font-semibold tracking-wide uppercase flex items-center gap-2;
+}
+
+.studio-input {
+  @apply w-full bg-neutral-900 border border-white/5 rounded-lg px-3 py-1.5 text-[11px] text-white focus:border-accent/40 transition-all outline-none;
+}
+
+canvas.pixel-render {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pixel-glow {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.08) 50%
+  );
+  background-size: 100% 2px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.mono-grid {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+input[type="range"] {
+  @apply h-1 bg-white/10 rounded-full appearance-none cursor-pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-3 h-3 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.3)];
+}
